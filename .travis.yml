@@ -1,0 +1,7 @@
+services:
+  - docker
+
+script:
+  - docker build -t test .
+  - docker run "zypper -vvvv ref -f"
+

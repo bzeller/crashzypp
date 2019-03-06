@@ -4,7 +4,7 @@ services:
 
 script:
   - docker build -t test .
-  - docker run test /bin/bash -c "zypper clean -mMa"
-  - docker run test rm -rf /tmp/* /var/tmp/* /var/cache/* /var/log/*
-  - docker run test /bin/bash -c "ZYPP_LOGFILE=- zypper --debug -n ref -f"
+#  - docker run test /bin/bash -c "zypper clean -mMa"
+#  - docker run test rm -rf /tmp/* /var/tmp/* /var/cache/* /var/log/*
+#  - docker run test /bin/bash -c "ZYPP_LOGFILE=- zypper --debug -n ref -f"
 

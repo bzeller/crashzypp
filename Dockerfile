@@ -8,16 +8,17 @@ RUN uname -a
 
 RUN zypper -nv in libzypp || :
 RUN rm -rf /tmp/* /var/tmp/* /var/cache/* /var/log/*
-RUN valgrind --exit-on-first-error=yes --error-exitcode=42 zypper -n -vvv ref -f
+#RUN valgrind --exit-on-first-error=yes --error-exitcode=42 zypper -n -vvv ref -f
 
 RUN zypper -nv in glibc || :
 RUN rm -rf /tmp/* /var/tmp/* /var/cache/* /var/log/*
-RUN valgrind --exit-on-first-error=yes --error-exitcode=42 zypper -n -vvv ref -f
+#RUN valgrind --exit-on-first-error=yes --error-exitcode=42 zypper -n -vvv ref -f
 
 RUN zypper -nv in libcurl4 || :
 RUN rm -rf /tmp/* /var/tmp/* /var/cache/* /var/log/*
-RUN valgrind --exit-on-first-error=yes --error-exitcode=42 zypper -n -vvv ref -f
+#RUN valgrind --exit-on-first-error=yes --error-exitcode=42 zypper -n -vvv ref -f
 
 RUN zypper -nv in zypper || :
 RUN rm -rf /tmp/* /var/tmp/* /var/cache/* /var/log/*
-RUN valgrind --exit-on-first-error=yes --error-exitcode=42 zypper -n -vvv ref -f
+#RUN valgrind --exit-on-first-error=yes --error-exitcode=42 zypper -n -vvv ref -f
+RUN bash -c "ZYPP_LOGFILE=- zypper -n --debug ref -f"

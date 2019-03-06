@@ -1,4 +1,4 @@
 FROM opensuse/tumbleweed:latest
 
-RUN zypper dist-upgrade -y
+RUN bash -c "zypper dist-upgrade -y  || [ $? == 106 -o $? == 107 -o $? == 0 ]"
 

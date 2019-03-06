@@ -4,5 +4,5 @@ services:
 
 script:
   - docker build -t test .
-  - docker run "zypper -vvvv ref -f"
+  - docker run "bash -c 'ZYPP_LOGFILE=- zypper --debug ref -f'"
 

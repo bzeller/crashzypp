@@ -15,7 +15,7 @@ RUN rm -rf /tmp/* /var/tmp/* /var/cache/* /var/log/*
 #RUN valgrind --exit-on-first-error=yes --error-exitcode=42 zypper -n -vvv ref -f
 RUN bash -c "ZYPP_LOGFILE=/tmp/zypplog valgrind --exit-on-first-error=yes --error-exitcode=42 zypper -n -vvv ref -f || ( cat /tmp/zypplog; exit 1 )"
 
-RUN zypper -nv in libcurl4 || :
+RUN zypper -nv in libcurl4 libcurl4-debuginfo || :
 RUN rm -rf /tmp/* /var/tmp/* /var/cache/* /var/log/*
 #RUN valgrind --exit-on-first-error=yes --error-exitcode=42 zypper -n -vvv ref -f
 RUN bash -c "ZYPP_LOGFILE=/tmp/zypplog zypper -n -vvv ref -f || ( cat /tmp/zypplog; exit 1 )"

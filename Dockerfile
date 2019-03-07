@@ -21,5 +21,5 @@ RUN rm -rf /tmp/* /var/tmp/* /var/cache/* /var/log/*
 RUN bash -c "ZYPP_LOGFILE=/tmp/zypplog valgrind --exit-on-first-error=yes --error-exitcode=42 zypper -n -vvv ref -f || ( cat /tmp/zypplog; exit 1 )"
 
 RUN zypper -nv in zypper || :
-RUN rm -rf /tmp/* /var/tmp/* /var/cache/* /var/log/*
+RUN rm -rf /tmp/* /var/tmp/* /var/cache/* /var/log/* 
 RUN bash -c "ZYPP_LOGFILE=/tmp/zypplog valgrind --exit-on-first-error=yes --error-exitcode=42 zypper -n -vvv ref -f || ( cat /tmp/zypplog; exit 1 )"

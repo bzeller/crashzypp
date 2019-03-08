@@ -12,8 +12,8 @@ ADD libzypp-17.11.2-0.x86_64.rpm /
 ADD libcurl4-7.64.0-0.x86_64.rpm /
 RUN rpm --nodeps -e libzypp
 RUN rpm --nodeps -e libcurl4
-RUN rpm -i /libzypp-17.11.2-0.x86_64.rpm
 RUN rpm -i /libcurl4-7.64.0-0.x86_64.rpm
+RUN rpm -i /libzypp-17.11.2-0.x86_64.rpm
 RUN rm -rf /tmp/* /var/tmp/* /var/cache/* /var/log/*
 #RUN valgrind --exit-on-first-error=yes --error-exitcode=42 zypper -n -vvv ref -f
 RUN bash -c "ZYPP_FULLLOG=1 ZYPP_MEDIA_CURL_DEBUG=1 ZYPP_LOGFILE=/tmp/zypplog valgrind --exit-on-first-error=yes --error-exitcode=42 zypper -n --debug ref -f || ( cat /tmp/zypplog; exit 1 )"

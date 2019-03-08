@@ -6,11 +6,11 @@ ADD valgrind-3.14.0-4.2.x86_64.rpm /
 RUN rpm -i /valgrind-3.14.0-4.2.x86_64.rpm
 RUN uname -a
 
-RUN zypper -nv ar https://download.opensuse.org/repositories/home:/favogt:/zyppcrash/openSUSE_Tumbleweed/ testcurl
-RUN zypper -n ref -f || :
+RUN zypper --gpg-auto-import-keys -nv ar https://download.opensuse.org/repositories/home:/favogt:/zyppcrash/openSUSE_Tumbleweed/ testcurl
+RUN zypper --gpg-auto-import-keys -n ref -f || :
 
 RUN zypper -nv in glibc || :
-RUN zypper -nv in --from testcurl --allow-vendor-change libcurl4 || :
+RUN zypper --gpg-auto-import-keys -nv in --from testcurl --allow-vendor-change libcurl4 || :
 RUN zypper -nv in libzypp || :
 #ADD libzypp-17.11.2-0.x86_64.rpm /
 #RUN rpm --nodeps -e libzypp

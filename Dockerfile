@@ -9,6 +9,7 @@ RUN uname -a
 RUN zypper -nv in glibc || :
 RUN zypper -nv in libcurl4 || :
 ADD libzypp-17.11.2-0.x86_64.rpm /
+RUN rpm --nodeps -e libzypp
 RUN rpm -i /libzypp-17.11.2-0.x86_64.rpm
 RUN rm -rf /tmp/* /var/tmp/* /var/cache/* /var/log/*
 #RUN valgrind --exit-on-first-error=yes --error-exitcode=42 zypper -n -vvv ref -f
